@@ -1,0 +1,93 @@
+@media (min-width: 768px){
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 13px;
+    }
+    
+    p {
+        font-size: 15px;
+    }
+
+    .header, .main {
+        max-width: 573px;
+    }
+
+    .header{
+        margin-top: 140px;
+    }
+    
+    .main{
+        
+        .searchbox {
+            height: 69px;
+
+            .search-input {
+                height: 69px;
+                font-size: 16px;
+                text-indent: 80px;
+            }
+
+            .search-btn {
+                padding:  15px 25px;
+                right: 10px;
+                font-size: 15px;
+            }
+
+            .search-icon {
+                width: 21px;
+                left: 40px;
+            }
+
+            .error-msg {
+                right: 130px;
+                top: 22px;
+            }
+        }
+
+        .mainbox {
+            padding: 40px;
+
+            .userbox {
+                .avatar{
+                    width: 117px;
+                    height: 117px;
+                }
+
+                .userinfo {
+                    margin-left: 35px;
+
+                    .name {
+                        font-size: 26px;
+                    }
+                }
+            }
+
+            .repobox {
+                justify-content: space-around;
+                text-align: left;
+            }
+        }
+
+        .infobox {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .header, .main {
+        max-width: 730px;
+    }
+
+    .userinfo{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        width: 100%;
+    }
+}

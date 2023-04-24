@@ -36,11 +36,19 @@ p {
   line-height: 25px;
 }
 
+.error {
+  opacity: 0.5;
+}
+
+.header, .main {
+  width: 90%;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 31px 24px;
+  margin: 31px auto;
 }
 .header .color-switch {
   display: flex;
@@ -62,7 +70,7 @@ p {
 }
 
 .main {
-  margin: 24px;
+  margin: 24px auto;
 }
 .main .searchbox {
   position: relative;
@@ -93,6 +101,10 @@ p {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+.main .searchbox .search-btn:hover {
+  background-color: rgb(96, 171, 255);
 }
 .main .searchbox .search-icon {
   position: absolute;
@@ -102,6 +114,9 @@ p {
   transform: translateY(-50%);
 }
 .main .searchbox .error-msg {
+  position: absolute;
+  right: 100px;
+  top: 17px;
   color: red;
 }
 .main .mainbox {
@@ -118,8 +133,10 @@ p {
 .main .mainbox .userbox .avatar {
   width: 70px;
   height: 70px;
-  border: 1px solid rgb(0, 121, 255);
   border-radius: 50%;
+}
+.main .mainbox .userbox .loginname {
+  color: rgb(0, 121, 255);
 }
 .main .mainbox .userbox .userinfo {
   margin-left: 20px;
@@ -157,4 +174,76 @@ p {
 }
 .main .mainbox .infobox .info img {
   margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 13px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .header, .main {
+    max-width: 573px;
+  }
+  .header {
+    margin-top: 140px;
+  }
+  .main .searchbox {
+    height: 69px;
+  }
+  .main .searchbox .search-input {
+    height: 69px;
+    font-size: 16px;
+    text-indent: 80px;
+  }
+  .main .searchbox .search-btn {
+    padding: 15px 25px;
+    right: 10px;
+    font-size: 15px;
+  }
+  .main .searchbox .search-icon {
+    width: 21px;
+    left: 40px;
+  }
+  .main .searchbox .error-msg {
+    right: 130px;
+    top: 22px;
+  }
+  .main .mainbox {
+    padding: 40px;
+  }
+  .main .mainbox .userbox .avatar {
+    width: 117px;
+    height: 117px;
+  }
+  .main .mainbox .userbox .userinfo {
+    margin-left: 35px;
+  }
+  .main .mainbox .userbox .userinfo .name {
+    font-size: 26px;
+  }
+  .main .mainbox .repobox {
+    justify-content: space-around;
+    text-align: left;
+  }
+  .main .infobox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .header, .main {
+    max-width: 730px;
+  }
+  .userinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */

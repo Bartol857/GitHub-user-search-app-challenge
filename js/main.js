@@ -12,6 +12,7 @@ const locationInfo = document.querySelector('.location-info');
 const websiteInfo = document.querySelector('.website-info');
 const twitterInfo = document.querySelector('.twitter-info');
 const companyInfo = document.querySelector('.company-info');
+const errorMsg = document.querySelector('.error-msg')
 
 const API_LINK = 'https://api.github.com/users/';
 
@@ -24,14 +25,14 @@ const getUser = () => {
         const gitUserName = res.data.name
         const gitLogin = res.data.login
         const gitJoin = res.data.created_at
-        const gitDesc = res.data.bio
+        const gitDesc = res.data.bio || 'This profile has no bio'
         const gitRepos = res.data.public_repos
         const gitFollowers = res.data.followers
         const gitFollowing = res.data.following
-        const gitLocation = res.data.location
-        const gitWebsite = res.data.html_url
-        const gitTwitter = res.data.twitter_username
-        const gitCompany = res.data.company
+        const gitLocation = res.data.location || 'Not Avaliable'
+        const gitWebsite = res.data.blog || 'Not Avaliable'
+        const gitTwitter = res.data.twitter_username || 'Not Avaliable'
+        const gitCompany = res.data.company || 'Not Avaliable'
 
         avatar.setAttribute('src', gitAvatar)
         username.textContent = gitUserName
@@ -46,11 +47,19 @@ const getUser = () => {
         twitterInfo.textContent = gitTwitter
         companyInfo.textContent = gitCompany
 
-        console.log(res.data);
-    })
+        errorMsg.textContent = ''
+        input.value = ''
+
+        console.log();
+    }).catch(() => errorMsg.textContent = 'No results')
 }
 
+const enterKeyCheck = e => {
+    if(e.key === 'Enter'){
+        getUser();
+    }
+}
 
 getUser();
-
-searchBtn.addEventListener('click', getUser)
+input.addEventListener('keyup', enterKeyCheck)
+searchBtn.addEventListener('click', getUser);

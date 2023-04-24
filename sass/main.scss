@@ -38,11 +38,19 @@ p {
 	line-height: 25px;
 }
 
+.error {
+	opacity: .5;
+}
+
+.header, .main {
+	width: 90%;
+}
+
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 31px 24px;
+	margin: 31px auto;
 
 	.color-switch {
 		display: flex;
@@ -66,7 +74,7 @@ p {
 }
 
 .main {
-	margin: 24px;
+	margin: 24px auto;
 
 	.searchbox {
 		position: relative;
@@ -98,6 +106,11 @@ p {
 			border: none;
 			border-radius: 10px;
 			cursor: pointer;
+			transition: background-color .3s;
+
+			&:hover{
+				background-color: $lightblue;
+			}
 		}
 
 		.search-icon {
@@ -109,6 +122,9 @@ p {
 		}
 
 		.error-msg {
+			position: absolute;
+			right: 100px;
+			top: 17px;
 			color: red;
 		}
 	}
@@ -127,8 +143,11 @@ p {
 			.avatar {
 				width: 70px;
 				height: 70px;
-				border: 1px solid $blue;
 				border-radius: 50%;
+			}
+
+			.loginname {
+				color: $blue;
 			}
 
 			.userinfo {
@@ -176,3 +195,5 @@ p {
 		}
 	}
 }
+
+@import './desktop'; 
