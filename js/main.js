@@ -24,7 +24,6 @@ const getUser = () => {
         const gitAvatar = res.data.avatar_url
         const gitUserName = res.data.name
         const gitLogin = res.data.login
-        const gitJoin = res.data.created_at
         const gitDesc = res.data.bio || 'This profile has no bio'
         const gitRepos = res.data.public_repos
         const gitFollowers = res.data.followers
@@ -33,11 +32,12 @@ const getUser = () => {
         const gitWebsite = res.data.blog || 'Not Avaliable'
         const gitTwitter = res.data.twitter_username || 'Not Avaliable'
         const gitCompany = res.data.company || 'Not Avaliable'
+        const date = new Date(res.data.created_at)
 
         avatar.setAttribute('src', gitAvatar)
         username.textContent = gitUserName
         login.textContent = '@' + gitLogin
-        joinDate.textContent = 'Joined' + ' ' + gitJoin
+        joinDate.textContent = 'Joined' + ' ' + date.toUTCString().slice(5, 16)
         description.textContent = gitDesc
         repos.textContent = gitRepos
         followers.textContent = gitFollowers
@@ -50,7 +50,6 @@ const getUser = () => {
         errorMsg.textContent = ''
         input.value = ''
 
-        console.log();
     }).catch(() => errorMsg.textContent = 'No results')
 }
 
