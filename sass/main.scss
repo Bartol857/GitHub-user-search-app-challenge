@@ -21,7 +21,6 @@ body {
 
 h1,
 h2 {
-	// color: $verydarkblue;
 	font-weight: bold;
 }
 
@@ -69,7 +68,7 @@ p {
 			padding-right: 30px;
 			font-weight: bold;
 			text-transform: uppercase;
-			color: $verydarkblue;
+			color: $grayishblue;
 			letter-spacing: 2.5px;
 			line-height: 11px;
 			transition: opacity .3s;
@@ -118,6 +117,11 @@ p {
 			box-shadow: 0 5px 15px -10px $gray;
 			outline: none;
 			text-indent: 40px;
+
+			&::placeholder{
+				color: inherit;
+				opacity: .85;
+			}
 		}
 
 		.search-input.dark {
@@ -244,6 +248,18 @@ p {
 
 	.repobox.dark {
 		background-color: $dark;
+	}
+}
+
+.footer {
+	.attribution {
+		font-size: 11px;
+		text-align: center;
+		color: $lightblue;
+	}
+	.attribution a {
+        text-decoration: none;
+		color: $blue;
 	}
 }
 
