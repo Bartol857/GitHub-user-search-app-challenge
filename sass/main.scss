@@ -14,9 +14,14 @@ body {
 	color: $grayishblue;
 }
 
+.dark {
+	background-color: $dark;
+	color: $white;
+}
+
 h1,
 h2 {
-	color: $verydarkblue;
+	// color: $verydarkblue;
 	font-weight: bold;
 }
 
@@ -38,11 +43,8 @@ p {
 	line-height: 25px;
 }
 
-.error {
-	opacity: .5;
-}
-
-.header, .main {
+.header,
+.main {
 	width: 90%;
 }
 
@@ -52,7 +54,7 @@ p {
 	align-items: center;
 	margin: 31px auto;
 
-	.color-switch {
+	.color-switcher {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -63,12 +65,37 @@ p {
 		cursor: pointer;
 
 		.color-name {
-			margin-right: 10px;
+			position: relative;
+			padding-right: 30px;
 			font-weight: bold;
 			text-transform: uppercase;
-			color: $grayishblue;
+			color: $verydarkblue;
 			letter-spacing: 2.5px;
 			line-height: 11px;
+			transition: opacity .3s;
+
+			&::after {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				content: '';
+				background: url('../assets/icon-moon.svg');
+			}
+		}
+
+		.color-name.dark {
+			color: $verylight;
+
+			&::after {
+				background: url('../assets/icon-sun.svg');
+			}
+		}
+
+		:hover {
+			opacity: 0.5;
 		}
 	}
 }
@@ -80,7 +107,7 @@ p {
 		position: relative;
 		margin-bottom: 20px;
 		height: 60px;
-		color: $grayishblue;
+		color: $blue;
 
 		.search-input {
 			width: 100%;
@@ -92,6 +119,12 @@ p {
 			outline: none;
 			text-indent: 40px;
 		}
+
+		.search-input.dark {
+			background-color: $darkblue;
+			box-shadow: none;
+		}
+
 
 		.search-btn {
 			position: absolute;
@@ -106,16 +139,16 @@ p {
 			border: none;
 			border-radius: 10px;
 			cursor: pointer;
-			transition: background-color .3s;
+			transition: background-color 0.3s;
 
-			&:hover{
+			&:hover {
 				background-color: $lightblue;
 			}
 		}
 
 		.search-icon {
 			position: absolute;
-            width: 18px;
+			width: 18px;
 			top: 50%;
 			left: 12px;
 			transform: translateY(-50%);
@@ -191,9 +224,27 @@ p {
 				img {
 					margin-right: 20px;
 				}
+
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+
+				a:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
+
+	.mainbox.dark {
+		background-color: $darkblue;
+		box-shadow: none;
+	} 
+
+	.repobox.dark {
+		background-color: $dark;
+	}
 }
 
-@import './desktop'; 
+@import './desktop';
